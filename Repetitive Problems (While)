@@ -209,9 +209,9 @@ class Main
   }
 }*/
 
+
 /* Write a program to count the number of digits in a given number. 
    For example, if the input is 257, then output should be 3  */
-
 /*import java.util.Scanner;
 class Main
 {
@@ -250,8 +250,33 @@ class Main
   }
 }
  */
-
-
+ 
+------------------------------------------------------------------------------------------------------------------------------------------ 
+ /* Write a program to check whether the given number is prime or not.
+    For example, if the input is 13, the output should be "Prime". If the input is 15, the output should be "Non-prime".  */
+/*
+import java.util.Scanner;
+class Main
+{
+ public static void main(String args[])
+ {
+   Scanner in = new Scanner(System.in);
+   int n = in.nextInt();
+   int num = 1; 
+   int factors_count = 0;
+   while(num <= n)
+   {
+      if(n%num==0)
+         factors_count = factors_count+1;
+       num = num+1;
+   }
+   if(factors_count==2)
+      System.out.println("Prime number");
+   else
+      System.out.println("Non prime number");
+  }
+}
+*/
 
 
 
