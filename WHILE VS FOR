@@ -1,1 +1,649 @@
+//==============================================================[ 1. Repeat it once again - ASSIGNMENT 1 ]=============================================================
+
+/*1) Printing all odd numbers from 1 to n
+     Write a JAVA program to print all odd numbers from 1 to n using for loop.
+     Sample Input: n = 10
+     Sample Output: 1 3 5 7 9      */
+
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    for(int i = 1 ; i <= n ; i++)
+    {
+      if(i%2 != 0)
+     	 System.out.println(i);
+    }
+  }
+}
+*/
+
+//-------------------------------------------------------------------------------------
+
+/* 2) Printing numbers from 30 to 50. 
+      Write a JAVA code to print the numbers from 30 to 50 using for loop.*/
+
+/*
+class Main
+{
+  public static void main(String args[])
+  {
+    for(int i = 30 ; i <= 50 ; i++)
+    {
+     	 System.out.println(i);
+    }
+  }
+}           */
+
+//-----------------------------------------------------------------------------------------
+
+/* 3) Printing n odd numbers
+      Write a JAVA code to print n odd numbers using for loop.
+      Sample Input: n = 5
+      Sample Output: 1 3 5 7 9*/
+/*
+
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt(), num = n*2;
+    for(int i = 1 ; i <= num ; i++)
+    {
+      if(i%2 != 0)
+     	 System.out.println(i);
+    }
+  }
+}     */
+
+//------------------------------------------------------------------------------------------
+
+/* 4) Sum of numbers from 1 to n
+      Write a JAVA code to find the sum of numbers from 1 to n using for loop.
+      Sample Input: 7
+      Sample Output: 28      */
+
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt(), sum = 0;
+    for(int i = 1 ; i <= n ; i++)
+      sum += i;
+    System.out.println(sum);
+  }
+}     */
+
+//================================================================[ 2. Step up, Step down! ]=======================================================================
+
+// Predict the output for the following code:
+
+// [1] /*
+import java.util.Scanner;
+class Main
+{
+   public static void main (String[] args)
+   {
+	  int n = 10;
+	  int a = n++;
+	  System.out.println(a);                  // 10
+	  System.out.println(n);                  // 11
+	  a = ++n;
+	  System.out.println(a);                  // 11
+	  System.out.println(n);                  // 12
+	}
+}      */
+
+// [2] /*
+import java.util.Scanner;
+class Main
+{
+	public static void main (String[] args)
+   {
+	   int n = 1;
+	   while(n < 5)
+	   {
+	    System.out.println(n++);               // 1 2 3 4
+	   }
+	}
+}             */
+
+// [3] /*
+import java.util.Scanner;
+class Main
+{
+   public static void main (String[] args) 
+  {
+	   int n = 5;
+	   while(n > 0)
+	   {
+	     System.out.println(--n);            // 4 3 2 1 0
+	   }
+	}
+}           */
+
+// [4] /*
+import java.util.Scanner;
+class Main
+{
+	public static void main (String[] args)
+    {
+	   for(int n = 5; n > 0; --n)
+	   {
+	     System.out.println(n);            // 5 4 3 2 1
+	   }
+	}
+}         */
+
+// [5] /*
+import java.util.Scanner;
+class Main
+{
+   public static void main (String[] args)
+   {
+      int n = 5;
+      while(n-- > 0)                     // 5>0(yes), (n-- = 4 will print) ; 4>0(yes) --> (n-- = 3) ,.......... 1>0(yes), (n-- = 0).
+      {
+        System.out.println(n);          // 4 3 2 1 0
+      }
+   }
+}           */
+
+//=========================================================[ ASSIGNMENT 2 ]=======================================================================================
+
+/* 1) What is the output of the below code:
+
+import java.util.Scanner;
+class Main
+{
+  public static void main (String[] args)
+  {
+    int x = 1; 
+    System.out.println(x++);                  // 1
+    System.out.println(x--);                  // 2
+    System.out.println(++x);                  // 2
+    System.out.println(--x);                  // 1
+ }
+}        */
+
+//------------------------------------------------------------------------------------
+/* 2) Predict the output for the following code:
+
+import java.util.Scanner;
+class Main
+{
+ public static void main (String[] args)
+ {
+   for(int x = 10; x >= 5; x-- )
+   {
+     System.out.println(x);                   // x = 10 9 8 7 6 5
+   }
+ }
+}         */
+
+//--------------------------------------------------------------------------------------
+/* 3) Predict the output for the following code:
+
+import java.util.Scanner;
+class Main
+{
+ public static void main (String[] args)
+ {
+   int a = 4, b = 4, c = 7, x;      
+   x = a++ + b++ - ++c;                      // x = 4+4-8 = 0
+   System.out.print(x);                      // x = 0
+ }
+}          */
+
+//--------------------------------------------------------------------------------------
+/* 4) Predict the output for the following code:
+
+import java.util.Scanner;
+class Main
+{
+ public static void main (String[] args)
+ {
+   int a = 4, b = 4, c = 7, x;
+   x = --a + ++b - c--;                         // 3+5-7
+   System.out.print(x);                         // 1
+ } 
+}           */
+
+//----------------------------------------------------------------------------------------
+/* 5) What is the output of the below code:
+
+import java.util.Scanner;
+class Main
+{
+ public static void main (String[] args)
+ {
+   int n = 1; 
+   while(n++ < 5)                                     
+   {
+     System.out.println(n);                    // 2 3 4 5
+   }
+ }
+}          */
+
+//-----------------------------------------------------------------------------------------
+/* 6) Predict the output of the below code:
+
+import java.util.Scanner;
+class Main
+{
+ public static void main (String[] args)
+ {
+   int x = 10, y = 9;
+   x++;                                  //  x = 11
+   y--;                                  //  y = 8
+   int a = x++ + --y;                    // a = 11+7 = 18        x = 12     y = 7
+   System.out.println(x);                // 12
+   System.out.println(y);               // 7
+   System.out.println(a);               // 18
+ }
+}         */
+
+//------------------------------------------------------------------------------------------
+/* 7) Find the output of the below code:
+
+import java.util.Scanner;
+class Main
+{
+ public static void main (String[] args)
+ {
+   int x = 10, y = 9;
+   int a = x++ + --y + ++x;                   // a = 10+8+12 = 30      x = 11 then 12       y = 8
+   System.out.println(x);          // 12
+   System.out.println(y);          // 8
+   System.out.println(a);          // 30
+ }
+}*/
+
+//------------------------------------------------------------------------------------------
+/* 8) Predict the output of the below code:
+
+import java.util.Scanner;
+class Main
+{
+ public static void main (String[] args)
+ {
+   int x = 5;
+   int y = 3;
+   int z = 2;
+   x = y++;                                // x = 3        y = 4
+   y = --z;                                // y = 1        z = 1
+   System.out.println(x);        // 3
+   System.out.println(y);        // 1
+   System.out.println(z);        // 1
+ }
+}*/
+
+//----------------------------------------------------------------------------------------
+/* 9) What is the output of the below code:
+
+import java.util.Scanner;
+class Main
+{
+ public static void main (String[] args)
+ {
+   int x = 10, y =10;
+   int a = x + y + y--;                        // a = 10+10+10 = 30     y = 9
+   System.out.println(a);                      // 30
+   System.out.println(y);                      // 9
+ }
+}     */
+
+//-----------------------------------------------------------------------------------------------
+/* 10) Find the output of the below code:
+
+import java.util.Scanner;
+class Main
+{
+  public static void main (String[] args)
+  {
+    int num = 1;
+    for(int i = 1; i < num; i++)                 // for loop not run bcoz (1 < 1) not satify
+    {
+      num++;
+    }
+    System.out.println(num);                    // 1
+  }
+}           */
+
+//==================================================[  3. A Case study using FOR ]=========================================================================================
+
+/*Write the Java code to generate the Fibonacci series for first ‘n’ numbers. 
+Sample Input: 5               Sample Output: 0 1 1 2 3 
+(The Fibonacci series starts with 0,1 then the third number is the sum of first two numbers 0+1 = 1, 
+Fourth number = 1+1 = 2, Fifth number = 1+2 = 3, so on. So the series becomes 0,1,1,2,3,5,..)*/
+
+/* :: PSEUDOCODE ::
+        START
+        INPUT : n
+        SET p1 = 0, p2 = 1
+        PRINT p1
+        PRINT p2
+        FOR generate_fib_num = 3 to n
+        {
+            next = p1 + p2
+            PRINT next
+            p1 = p2
+            p2 = next
+         }
+         STOP
+*/
+
+/*
+import java.util.*;
+class Main
+{
+    public static void main(String args[])
+    {
+      Scanner in = new Scanner(System.in);
+      int n = in.nextInt(), p1 = 0, p2 = 1, next = 0;
+      System.out.print(p1 + " " + p2);                  // o/p = 0 1...
+      for(int i = 3 ; i <= n ; i++ )                    // 3 <= 5                  4 <= 5               5 <= 5
+      {
+        next = p1 + p2;                                 // next = 1                next = 2             next = 3  
+        System.out.print(next);                         // o/p  = 0 1 1..          o/p  = 0 1 1 2.      o/p  = 0 1 1 2 3
+        p1 = p2;                                        // p1   = 1                p1   = 1             p1   = 1
+        p2 = next;                                      // p2   = 1                p2   = 2             p2   = 3
+      }
+    }
+}         */
+
+//-----------------------------------------------------------------------------------------------------
+
+/* Write a Java code to reverse any number given. 
+(In the first lesson, we have learnt how to reverse a 3 digit number but 
+here we will learn to reverse any number of digits given, it can be a 3 digit or 4 or 5 digit number.)
+Eg: Sample input  - 4567 
+    Sample output - 7654         */
+
+/* :: PSEUDOCODE :: Approach 1 ::
+        START
+        INPUT : n
+        SET sum = 0
+        WHILE n > 0
+        {
+            SET num = n
+            SET count = (num%10)
+            sum = (sum=count) * 10
+            n = n/10;
+         }
+         PRINT sum/10;  
+         STOP
+*/
+
+/* 
+import java.util.*;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt(), sum = 0;
+    while( n > 0)
+    {
+      int num = n;
+      int count = (num % 10);                         // 7      6       5      4                                                                              
+      sum = (sum + count) * 10;                       // 70    760    7650    76540                                                          
+      n = n/10;
+    }
+    System.out.println( sum/10 );                     // 76540/10 = 7654
+  }
+}             */
+
+/* :: PSEUDOCODE :: Approach 2 ::
+        START
+        INPUT : n
+        WHILE n > 0
+        {
+            Last_digit = (n%10)
+            rev = (rev * 10) + Last_digit
+            n = n/10
+         }
+         PRINT rev   
+         STOP
+*/
+
+/* 
+import java.util.*;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt(), rev = 0;
+    while( n > 0)                                  // 4567 > 0            456 > 0             45 > 0                 4 > 0                0 > 0
+    {
+      int last_digit = (n % 10);                   // (4567 % 10) = 7     (456 % 10) = 6     (45 % 10)   = 5         (4 % 10)   = 4       loop end                                                                            
+      rev = (rev * 10) + last_digit;               // (0*10) + 7  = 7     (7*10) + 6 = 76    (76*10) + 5 = 765     (765*10) + 4 = 7654        "                                                 
+      n = n/10;                                    // 4567 / 10   = 456     456 / 10 = 45        45 / 10 = 4             4 / 10 = 0           "
+    }
+    System.out.println( rev );                     // 7654
+  }
+}             */
+
+//==============================================================[ ASSIGNMENT 3 ]===============================================================================
+
+/* 1) Factors of a number
+      Write a JAVA code to find the factors of a given number. Factors of a number refers to all the numbers 
+      which divide the given number completely. Also called divisors of a number.
+      Sample Input: 12
+      Sample Output: 1 2 3 4 6 12   */
+      
+/*
+import java.util.*;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    for(int factor = 1 ; factor <= n ; factor++)
+    {
+      if( n % factor == 0)                           // (12 % factor == 0)...........[ factor = 1,2,3,4,5,6,7,8,9,10,11,12 ]
+        System.out.println(factor);                  // 1  2  3  4  6  12
+    }
+  }
+}*/
+
+//--------------------------------------------------------------------------------------------------------------     
+/* 2) Armstrong Number
+      Write a JAVA code to find the given number is Armstrong number or not. 
+      A number which is equal to the sum of its own digits raised to the power of the number of digits. 
+      Then given number is Armstrong number.
+      Sample Input: num = 1634
+      Sample Output:  Armstrong Number
+      Explanation: 1634 = 1^4 + 6^4 + 3^4 + 4^4
+                        = 1 + 1296 + 81 + 256
+                        = 1634                      */
+                        
+// :: APPROACH 1 :: 
+/* import java.util.*;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt(), input = n, count = 0, sum = 0;
+    while(n > 0)
+    {
+      count++;       // 4
+      n = n/10;
+    }
+    while(n >= 0)                       // 1634               163               16                   1
+    {
+      int num = n % 10;                 // 4                  3                 6                    1
+      sum += Math.pow(num,count);       // 0 + 4^4            256 + (3^4)       256 + 81 + (6^4)     256 + 81 + 1296 + (1^4)
+      n = n/10 ;                        // 1634/10 = 163      163/10 = 16       16/10 = 1            1/10 = 0  
+    }
+    if( input == sum)
+      System.out.println("Armstrong Number");
+    else
+      System.out.println("Not a Armstrong Number");
+  }
+}*/
+
+// :: APPROACH 2 ::
+/* import java.util.Scanner;
+class Main{
+	public static void main (String[] args){
+	    Scanner in = new Scanner(System.in);
+	    int num = in.nextInt();
+	    int copy_number = num;
+	    int digit_count = 0;
+        // find the digits count
+	    if(num == 0){
+	        System.out.print(num);
+	    }
+	    else{
+	        while(num > 0){
+	            digit_count++;
+	            num = num / 10;
+	        }
+	    }
+	    num = copy_number;
+	    int sum = 0;
+	    int pow = 1;
+        /* Extract each digit 
+           Compute power of each digit
+           If sum of all values equal to the given number, then print Armstrong number
+           Otherwise print not a armstrong number */
+           
+	    while(num > 0)
+	    {
+	        int rem = num % 10;
+	        for(int count = 1; count <= digit_count; count++){
+	            pow = pow * rem;
+	        }
+	        sum = sum  + pow;
+	        pow = 1;
+	        num = num / 10;
+	    }
+	    if(sum == copy_number){
+	        System.out.print("Armstrong Number");
+	    }
+	    else{
+	        System.out.print("Not a Armstrong Number");
+	    }
+	}
+}*/
+
+//--------------------------------------------------------------------------------------------------                     
+/* 3) Factorial of a number
+      Write a JAVA code to find the factorial of a given number. 
+      Factorial of a number is multiplication of all numbers from 1 to given number
+      Sample Input: num = 5
+      Sample Output: 120
+      Explanation: 1 * 2 * 3 * 4 * 5 = 120          */
+      
+// :: APPROACH 1 USING WHILE LOOP ::
+/*import java.util.*;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    while(n > 1)                    //    5               4                 3                   2             1 not satisfy
+        fact *= --n;                // 5 * 4 = 20      20 * 3 = 60      60 * 2 = 120       120 * 1 = 120      loop end                  
+    
+     System.out.println(fact);      // 120
+  }
+}*/
+
+// :: APPROACH 2 USING FOR LOOP ::
+/*import java.util.Scanner;
+class Main
+{
+	public static void main (String[] args)
+  {  
+	    Scanner in = new Scanner(System.in);
+	    int num = in.nextInt();  
+	    int fact = 1;
+	    for(int count = 1; count <= num; count++)         //Multiplication of all numbers from 1 to given number
+	        fact = fact * count;
+	    System.out.print(fact);
+	}
+}*/
+
+//------------------------------------------------------------------------------------------------------      
+/* 4) Strong Number
+      Write a JAVA code to check whether a given number is Strong number or not. 
+      Strong Numbers are the numbers whose sum of factorial of digits is equal to the given number.
+      Sample Input: num = 145
+      Sample Output: Yes
+      Explanation: 145 => 1! + 4! + 5!
+                       => 1 + 24 + 120
+                       => 145                       */
+                       
+// :: APPROACH 1 USING INNER WHILE LOOP ::
+/*import java.util.*;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt(), input = n, 
+    fact = 1, sum = 0;
+    while(n > 0)                        // 145 > 0 (yes)                                ||  14 > 0 (yes)                        || 1>0 (yes)            || 0>0 (no)
+    {                                                                                   ||                                      ||                      || outer loop end
+      int num = n%10;                   // (145 % 10 = 5)                               ||  (14 % 10 = 4)                       || (1 % 10 = 1)         ||
+      while(num > 1)                    // 5>1            3>1           1>1 not satisfy ||  4>1           2>1           0>1 not ||  1>1 not satisfy     || 
+      {                                                                 loop end        ||                              satisfy ||                      ||
+         fact = fact * num * (--num);   // 1*5*4 = 20    20*3*2 = 120                   ||  1*4*3 = 12    12*2*1 = 24   loop end||
+         --num;                         // 3              1                             ||  2             0                     ||
+      }                                                                                 ||                                      ||
+      sum += fact;                      // sum = 120                                    || sum = 120 + 24 = 144                 || sum =  144 + 1 = 145                                                  
+      fact = 1;                                                                         ||                                      ||
+      n = n/10;                         // 145/10 = 14                                  || 14/10 = 1                            || 1/10 = 0
+    }                                   // Hence, on line 539 , (0 !> 0) , outer loop end
+    if(sum == input)                    // 145 == 145 yes
+      System.out.println("Yes");        // o/p = yes
+    else
+      System.out.println("No");
+  }
+}           */
+
+// :: APPROACH 2 USING INNER FOR LOOP ::
+/*import java.util.Scanner;
+class Main{
+	public static void main (String[] args){
+	    Scanner in = new Scanner(System.in);
+	    int num = in.nextInt();
+	    int copy_number = num;
+	    int sum = 0;
+	    while(num > 0){
+	        int rem = num % 10;
+	        int fact = 1;
+            // Finding factorial of each digit
+	        for(int count = 1; count <= rem; count++)
+	        {
+	            fact = fact * count;
+	        }
+	        sum = sum + fact;
+	        num = num / 10;
+	    }
+	    if(copy_number == sum)
+	    {
+	        System.out.println("Yes");
+	    }
+	    else{
+	        System.out.println("No");
+	    }
+	}
+}              */
+//============================================================================================================================
+
 
