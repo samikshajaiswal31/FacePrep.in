@@ -1,1 +1,159 @@
+//=========================================[ Let's start with One-dimensional pattern printing ]==================================
+/*
+import java.util.Scanner;
+public class printstar 
+{	
+	public static void main(String[] args) 
+  {
+		int n = 20;
+		int starcount;
+		for(starcount=1; starcount<=n; starcount++) 
+			System.out.print("*");                      // ********************
+	}
+}        */
+
+//-------------------------------------------------------------------------------------------
+//Printing consecutive numbers in a row, starting from 1?.....12345678..or..1,2,3,4,5...
+
+/* :: PSEUDOCODE ::
+1. START
+2. INPUT "n"
+3. FOR num = (1 to n)
+4. {
+5.   PRINT num
+6. } 
+7. STOP   */
+
+/*import java.util.Scanner;
+public class Main 
+{	
+	public static void main(String[] args) 
+  {
+    Scanner in = new Scanner(System.in);
+		int n = in.nextInt();                    // 10
+		for(int i=1; i<=n; i++) 
+			System.out.print(i+" ");               // 1 2 3 4 5 6 7 8 9 10
+	}
+}         */
+
+/* :: PSEUDOCODE ::
+1. START
+2. INPUT "n"
+3. FOR num = (1 to n)
+4. {
+5.   PRINT num
+6.   PRINT ","
+7. } 
+8. STOP   */
+
+/*import java.util.Scanner;
+public class Main 
+{	
+	public static void main(String[] args) 
+  {
+    Scanner in = new Scanner(System.in);
+		int n = in.nextInt();                   // 10
+		for(int i=1; i<=n; i++) 
+        {	System.out.print(i);              // 1,2,3,4,5,6,7,8,9,10.
+	     	if(i != n)   
+         		System.out.print(",");
+         	else
+              System.out.print(".");
+        }
+    }
+}       */ 
+//------------------------------------------------------------------------------------------
+
+//Try the Java Code to print a # after every 3 stars. [Sample Output: ***#***#**]
+/*:: PSEUDOCODE ::
+1. START
+2. INPUT "n" and "m"
+3. FOR (starcount = 1 to n)
+4. {
+5.   PRINT "*"
+6.   IF((starcount % m == 0) && (starcount != n)) 
+7.   {
+8.       PRINT "#"   
+9.    }
+10. } 
+11. STOP
+
+Here,
+'n' is the number of stars to be printed
+'m' is the no. of places after which every hash is to be printed. */
+
+/*
+import java.util.Scanner;
+class Main
+{	
+	public static void main(String[] args) 
+    {
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt(), m = in.nextInt();    // 9 3
+      	for(int i = 1 ; i <= n ; i++)          // 1 2 3 4 5 6 7 8
+        {
+         	System.out.print("*");              // * * * # * * * # * * *
+          	if((i % m == 0) && (i != n))      // 1 2 3   4 5 6   7 8 9          
+              System.out.print("#");          // (i!=n)-> this condition should be written bcoz # should be not print at the end
+        }			
+	}
+}          */
+
+//=======================================================[ ASSIGNMENT 1 ]===============================================================
+
+/* 1) Printing stars in vertical fashion
+      Write a JAVA program to print stars in vertical fashion
+      Eg: If the input is 7, then output will be: *
+                                                  *
+                                                  *
+                                                  *
+                                                  *
+                                                  *
+                                                  *
+                                                  *                  */
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+   Scanner in = new Scanner(System.in);
+   int n = in.nextInt();
+    for(int i = 1; i <= n; i++)              // 3
+    {
+      System.out.println("*");               // O/P : *
+    }                                         //      *
+  }                                          //       *
+}       */
+//------------------------------------------------------------------------------------
+
+/* 2) Printing N numbers in the same line with comma for every 3 value
+      Write a JAVA program to print N numbers in the same line with comma for every 3 values
+      Eg.: If the input is 7, then output will be : 123,456,7   */
+      
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner (System.in);
+    int n = in.nextInt();
+    for(int i = 1; i <= n ; i++)
+    {
+      System.out.print(i);
+      if((i % 3 == 0) && (i != n))
+        System.out.print(",");
+    }
+  }
+}*/
+//==============================================================================================================================
+
+
+
+
+
+
+
+
 
