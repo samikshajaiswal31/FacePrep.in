@@ -853,6 +853,184 @@ class Main{
 
 //============================================[ Solving Two Dimensional Patterns - Advanced - 2 ]=====================================
 
+/* 1) Inverse Half Diamond Pattern , print stars in that pattern for the size n=4.
+	o/p : *******
+	       *****
+	        ***
+      		 *	*/
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+	int n = in.nextInt(), count = 1;
+	for(int row = 1 ; row <= n ; row++)
+	{
+		for(int space = 1 ; space <= (row-1) ; space++ ) 
+			System.out.print(" ");
+		for(int col = 1 ; col <= (n*2)-count ; col++)
+			System.out.print("*");
+    		System.out.print("\n");	
+		count = count + 2;
+	}	
+  }
+}	*/
+
+
+// :: PSEUDOCODE APPROACH 2::
+/*
+START
+INPUT: n
+star_count = (2 * n - 1)
+FOR row_no = 1 to n
+{
+    // Handle spaces for each row
+    FOR space = 1 to (row_no -1)
+    {
+        PRINT " "
+    }
+    // Handle stars for each row
+     FOR col_no = 1 to (star_count - 2 * (row_no - 1))
+     {
+     PRINT "*"
+     }
+PRINT "\n"   
+STOP		*/
+
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String[] args) 
+  {
+    Scanner in = new Scanner(System.in);
+	int n = in.nextInt(), count = 2*n - 1;
+	for(int row = 1 ; row <= n ; row++)
+	{
+	    for(int space = 1 ; space <= (row-1) ; space++ ) 
+			System.out.print(" ");                       // COUNT - 2*(ROW-1)
+	    for(int star = 1 ; star <= (count-2*(row-1)) ; star++)   // : 7 - 2*(1-1) = 7 - 2*0 = 7 - 0 = 7
+			System.out.print("*");                       // : 7 - 2*(2-1) = 7 - 2*1 = 7 - 2 = 5.....SO ON
+    	    System.out.print("\n");	
+        }	
+   }
+}	*/
+//-----------------------------------------------------------------------------
+
+/* 2 ) Print stars in the following diamond pattern for the size n = 4.
+	O/P : 	   *   
+		  ***
+     		 *****
+   		*******
+		 *****
+       		  ***
+         	   *		*/
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String[] args) 
+  {
+    Scanner in = new Scanner(System.in);
+	int n = in.nextInt(), count = -1;
+	for(int row = 1 ; row <= n ; row++)
+	{
+	    for(int space = 1 ; space <= (n-row) ; space++ ) 
+			System.out.print(" ");
+            count = count + 2;
+	    for(int star = 1 ; star <= count; star++)
+			System.out.print("*");
+    	    System.out.print("\n");
+        
+	}
+        n = n-1;
+        for(int row = 1 ; row <= n ; row++)
+	{
+	    for(int space = 1 ; space <= row ; space++ ) 
+			System.out.print(" ");
+            count = count - 2;
+	    for(int star = 1 ; star <= count ; star++)
+			System.out.print("*");
+    	    System.out.print("\n");
+        }	
+   }
+}	*/
+
+// :: PSEUDOCODE :: APPROACH 2 ::
+/*
+START
+INPUT: n
+FOR row_no = 1 to n
+{
+    // Handle spaces for each row
+    FOR space = 1 to (n - row_no)
+    {
+        PRINT " "
+    }
+    // Handle spaces for each row
+     FOR col_no = 1 to (2 * row_no - 1)
+     {
+     	PRINT "*"
+     }
+     PRINT "\n" 
+}  
+star_count = (2 * (n - 1) - 1)
+FOR row_no = 1 to n
+{
+    // Handle spaces for each row
+    FOR space = 1 to (row_no)
+    {
+        PRINT " "
+    }
+    // Handle spaces for each row
+     FOR col_no = 1 to (star_count - 2 * (row_no - 1))
+     {
+         PRINT "*"
+     }
+    PRINT "\n" 
+}  
+STOP	*/
+
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String[] args) 
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    for(int row = 1 ; row <= n ; row++)
+    {
+	for(int space = 1 ; space <= (n-row) ; space++ ) 
+		System.out.print(" ");
+	for(int star = 1 ; star <= (2*row)- 1; star++)
+		System.out.print("*");
+    	System.out.print("\n");
+    }
+    int count = 2*(n-1) - 1;                             // count = 2*(n-1) - 1 = 2 *(4-1) - 1 = 6 - 1 = 5
+    for(int row = 1 ; row <= n ; row++)
+    {
+	for(int space = 1 ; space <= row ; space++ ) 
+		System.out.print(" ");
+	for(int star = 1 ; star <= (count-2*(row-1)) ; star++)  // count-2*(row-1)    
+		System.out.print("*");                          //   5  -2*(1  -1) = 5-2*0 = 5-0 = 5
+    	System.out.print("\n");                                 //   5  -2*(2  -1) = 5-2*1 = 5-2 = 3....so on.
+    }	
+  }
+ }	*/
+ //------------------------------------------------------------------------------------------------
+ 
+ /* 3) Printing the same diamond with stars and numbers as below for the size n = 4?
+	o/p : 		1 
+	               2*2
+ 	              3*3*3
+    	             4*4*4*4
+ 	 	      3*3*3
+  	               2*2
+       	                1 	*/
+
+
 
 	
 
