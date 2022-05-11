@@ -1,1 +1,313 @@
 //=====================================================[ 1. Need for Function ]========================================================
+
+/* 1) Write a Java code to find the sum of last three digits of any given number 'n'.
+      Sample input :  8672                Sample output : 15       */
+
+// :: PSEUDOCODE APPROACH ::
+/* 
+START
+INPUT n
+int sum_of_digits = (n%10) + ((n%100)/10) + ((n%1000)/100)
+PRINT sum_of_digits
+STOP    */ 
+
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    System.out.println((n%10) + (n%100/10) + (n%1000/100));
+  }
+}       */
+//-------------------------------------------------------------------------
+
+/* 2) Write a Java code to find the sum of last three digits of any given number 'n'.
+      Sample input : 1234          Sample output : 9
+                     8732                          12
+                     91805                         13     */
+// :: APPROACH 1 ::
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n1 = in.nextInt(), n2 = in.nextInt(), n3 = in.nextInt();
+    System.out.println((n1%10) + (n1%100/10) + (n1%1000/100));
+    System.out.println((n2%10) + (n2%100/10) + (n2%1000/100));
+    System.out.println((n3%10) + (n3%100/10) + (n3%1000/100));
+  }
+}     */
+
+// :: USING FUNCTION APPROACH ::
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int sum(int n)
+  {
+    int sod = (n%10) + (n%100/10) + (n%1000/100);
+    return sod;
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n1 = in.nextInt(), n2 = in.nextInt(), n3 = in.nextInt();
+    System.out.println( sum(n1) +"\n"+ sum(n2) +"\n"+ sum(n3) );
+  }
+}       */
+//------------------------------------------------------------------------
+
+// 3) Find the error in the following program we just implemented.
+/*
+import java.util.Scanner;
+class Main
+{
+ public static int sum_of_last3_digits(int num)
+ {
+    int sod = (num%10) + ((num%100)/10) + ((num%1000)/100);      // RETURN statement missing
+ }
+ public static void main(String args[])
+ {
+    Scanner in = new Scanner(System.in);
+    int n1 = in.nextInt();
+    int n2 = in.nextInt();
+    int n3 = in.nextInt();
+    int sod1 = sum_of_last3_digits(n1);
+    int sod2 = sum_of_last3_digits(n2);
+    int sod3 = sum_of_last3_digits(n3);
+    System.out.println(sod1);
+    System.out.println(sod2);
+    System.out.println(sod3);
+  }
+}           */
+//---------------------------------------------------------------------------------------------
+
+/* 4) Write a Java program to find the digit root* of a given number n.
+      ( Digit root is the single digit number which is the result of adding the digits of a number repeatedly 
+        until we get a single digit output )
+      Sample input: 98            Sample output: 8        */
+      
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int digit_root(int n)
+  {
+    int sum = 0;
+    while(n != 0)
+    {
+      int num = n%10;
+      sum = sum + num;
+      n= n/10;
+    }
+    return sum;
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    int result = digit_root(n);
+    if( sum < 10)
+      System.out.println(result);
+    else
+       digit_root(result);
+   }
+}       */
+
+//====================================================[ ASSIGNMENT 1 ]==================================================================
+
+/* 1) Square of a number using function
+      Write a JAVA code to find the square of a number using function.
+      Sample Input: 6             Sample Output: 36                           */
+      
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int square(int n)
+  {  
+    return (n*n); 
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    System.out.println(square(n));
+  }
+}        */
+
+/* 2) Sum of numbers using function
+      Write a Java code to find the sum of numbers using function.
+      Sample Input: 5           Sample Output: 15                         */
+      
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int sum_of_nos(int n)
+  { 
+    int sum = 0;
+    while(n != 0)
+      sum = sum + n--;
+    return sum; 
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    System.out.println(sum_of_nos(n));
+  }
+}*/
+
+//===============================================[ 2. Structure of Functions ]====================================================
+
+/*
+Q)  Every Java program should contain at least one function.
+    True
+    False
+=>  It's true that every Java program must contain at least one function. And that is our Main function. 
+    But, any function we create other than Main function is called a User-defined function. As the name implies, 
+    the input, output and operation of these functions will be defined by the user.
+    When we write Functions inside a program, it should have a proper structure. 
+    
+    Function must have 3 parameters, which need to compile
+    => Function call
+    => Function defination with return type
+    => Return statement                                                 */
+//------------------------------------------------------------------------------
+
+/* 1) Which statement in the below Java program performs a function call?
+
+class Main
+{
+  public static void jfs(int num)
+  {
+    System.out.println(num); 
+  }
+  public static void main(String args[])
+  {
+    int a = 10;
+    jfs (a);      //Our function name is jfs and it is called in the statement #180 as jfs(a), where 'a' is the argument passed.
+  }
+}     */
+//---------------------------------[ FACT 1 ]---------------------------------------------
+
+/* Let's get into some conceptual facts about functions.
+   FACT 1: It is possible to write a function without a return type.
+
+class Main
+{
+   public static void jfs(int num)
+   {
+      System.out.println(num); 
+   }
+   public static void main(String args[])
+   {
+      int a = 10;
+      jfs (a); //This is a function call
+   }
+}
+So here, we didn't use the return statement inside the jfs function, because we have printed the output 
+in the definition part itself. The function call has nothing to return for printing the output.               */
+//----------------------------------------------------------------------------------------------------
+
+/*
+The following Java code has an error. Which of the statements in the below program has to 
+be modified to correct the mistake?
+
+class Main
+{
+  public static void jfs()             // we have not passed the 'num' to be printed on line #225. 
+  {
+    System.out.println(num); 
+  }
+  public static void main(String args[])
+  {
+    int a = 10;
+    jfs (a);
+  }
+}       */
+//---------------------------------[ FACT 2 ]-------------------------------------------------
+
+/*  FACT 2: It is mandatory to pass the arguments to the function, if we mention it in the function call.
+
+class Main
+{
+   public static void jfs(int num)           //argument received here
+   {
+      System.out.println(num); 
+   }
+   public static void main(String args[])
+   {
+      int a = 10;
+      jfs (a);                                // argument passed here   
+   }
+}
+We know that we can send values through functions. But it is mandatory to include it in the function definition. 
+*/
+//-------------------------------------------------------------------------------------------
+  
+/*  What is special about the Java code given below?
+    class Main
+    {
+       public static int jfs(int n1, int n2)       //arguments received here
+       {
+         int sum = n1+n2;
+         return sum;  //result retuned here
+       }
+       public static void main(String args[])
+       {
+          int a = 10, b=20;
+          int c = jfs (a,b);                        // arguments passed here  
+          System.out.println(c);                    //result printed here
+       }
+    }
+    
+=====>>>>> We have passed two arguments to a function
+ */
+//-----------------------------[ FACT 3 ]--------------------------------------
+
+/* FACT 3: It is possible to pass more than one argument to the function.
+class Main
+{
+  public static int addition(int n1, int n2) //arguments received here
+  {
+   int sum = n1+n2;
+   return sum;                                 //result retuned here
+  }
+  public static void main(String args[])
+  {
+     int a = 10, b=20;
+     int c = addition(a,b);                   // arguments passed here  
+     System.out.println(c);                   //result printed here
+  }
+}
+Here, we have passed two numbers n1 and n2, to the addition function. 
+The sum is calculated and returned to the Main.
+*/
+//-----------------------------------------------------------------------------
+
+/*  Find the error in this Java program.
+class Main
+{
+  public static int jfs(int n1) //arguments received here
+  {
+   int sum = n1+n2;
+   return sum; //result retuned here
+  }
+  public static void main(String args[])
+  {
+     int a = 10, b=20;
+     int c = jfs (a,b); // arguments passed here  
+     System.out.println(c); //result printed here
+  }
+}
+=======>>>>>>  The function definition should receive two arguments
+*/
+//========================================[ 3. How the backend works for Functions? ]========================================================
+
