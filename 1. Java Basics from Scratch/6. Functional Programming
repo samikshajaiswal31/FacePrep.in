@@ -379,5 +379,50 @@ OUTPUT : 50
 
 //=================================================[ ASSIGNMENT 2 ]===============================================
 
+/* 1) Power of a number using functions
+      Write a JAVA code to find the power of a number using functions.
+      Sample Input:   base = 2
+                      exponent = 4
+      Sample Output:  16                              */
+
+/*
+import java.util.Scanner;
+class Main
+{
+   public static int power(int b, int exp)
+   {
+     int result = 1;
+      while(exp-- != 0)
+        result *= b;
+      return result;
+   }
+   public static void main(String args[])
+   {
+      Scanner in = new Scanner(System.in);
+      int base = in.nextInt(), exp = in.nextInt();
+      System.out.println(power(base, exp));
+   }
+}         
+*/
+//-----------------------------------------------------------------------------------
+
+/* 2) Prime numbers from 2 to given number using functions
+      Write a JAVA code to print prime numbers from 2 to given number using functions. 
+      The numbers which are divisible by 1 and itself are prime numbers.
+      Sample Input:  10
+      Sample Output:  2
+                      3
+                      5
+                      7            */
+                      
+/*
+*/                      
+                      
+
+
+
+
+
+
 
 
