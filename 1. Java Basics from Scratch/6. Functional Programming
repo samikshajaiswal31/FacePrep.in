@@ -309,5 +309,75 @@ class Main
 }
 =======>>>>>>  The function definition should receive two arguments
 */
+
 //========================================[ 3. How the backend works for Functions? ]========================================================
+
+/* 1) What will be the output for the below code?
+
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    int a = 10;
+    System.out.println(a);                   // o/p : 10 .............<1>
+    fn(a);                    // fn(10) Here fn value is not initialized to any variable so, a will be remain
+    System.out.println(a);                   //     : 10..............<4>
+  }
+  public static void fn(int a)  // a = 10
+  {
+    System.out.println(a);                   //     :  10 .............<2>   
+    a = 20;                     // a = 20                        
+    System.out.println(a);                    //    :  20 .............<3>
+  }
+}
+
+OUTPUT : 10 
+         10
+         20
+         10
+*/
+//-------------------------------------------------------------------------------
+
+/* 2) Predict the output for the following code:
+import java.util.Scanner;
+class Main{
+  public static void main(String args[]){
+    int num = 10;                                                 // Assign 10 to num
+                                                                  // Function call
+                                               // No variable to Receive value returned from the function
+    change(num);    
+    System.out.println(num);                                      // Printing num value
+  }
+  public static int change(int m)                                 // assigning value of num to m
+  {
+    m = m + 40;                                 // Adding value of m with 40 and then assign result to m
+    return m;                                    // returning m = 50 to main function
+  }
+}
+OUTPUT : 10
+*/
+//-----------------------------------------------------------------------------------
+
+/* 3) Predict the output for the following code:
+import java.util.Scanner;
+class Main{
+  public static void main(String args[]){
+    int num = 10;                                     // Assigning 10 to num
+                               // assigning new value to the num which is returned from the function
+    num = change(num);
+    System.out.println(num);                       // printing new value of num
+  }
+  public static int change(int m)
+  {
+    m = m + 40;                                    // Adding m with 40 and assigning 50 to m
+    return m;                                      // returning m to main function
+  }
+}
+OUTPUT : 50
+*/
+
+//=================================================[ ASSIGNMENT 2 ]===============================================
+
+
 
