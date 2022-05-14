@@ -9,10 +9,217 @@
 import java.util.Scanner;
 class Main
 {
+  public static int fact(int n)
+  {
+      int fact = 1;
+      for(int i = 1; i <= n ; i++)
+        fact = fact * i;
+      return fact;
+  }
   public static void main(String args[])
   {
     Scanner in = new Scanner(System.in);
     int n = in.nextInt();
-    
+    for(int i = 1 ; i <= n ; i++)
+      System.out.println(fact(i));  
   }
-}*/
+}           */
+//----------------------------------------------------------------------------------
+
+/* 2) Write the Java code to find the GCD (Greatest Common Divisor) of two numbers.
+      Sample Input: n1 = 3, n2 = 6
+      Sample Output: 3
+GCD of two numbers is the largest number that divides both of them. It is also termed 
+as HCF (Highest Common Factor).     */
+
+// :: APPROACH 1 ::
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int GCD(int n1, int n2)
+  {
+      int fact = 1;
+      for(int i = n1; i >= 1 ; i--)
+      { 
+         if( (n1 % i == 0) && (n2 % i == 0) )
+         {
+            return i;
+         }
+      }
+      return 1;
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt(), m = in.nextInt();
+    if(m > n)
+      System.out.println(GCD(m,n));
+    else
+      System.out.println(GCD(n,m));
+  }
+}   */
+
+//------------:: APPROACH 2 ::------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int GCD(int n, int m)
+  {
+    int min;
+    if(m > n)
+      min = n;
+    else
+      min = m;
+    while(min != 0)
+    { 
+         if( (n % min == 0) && (m % min == 0) )
+         {
+            return min;
+         }
+      --min;
+    }
+      return 1;
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt(), m = in.nextInt();
+    System.out.println(GCD(n,m));
+  }
+}           */
+//================================================[ ASSIGNMENT 1 ]==================================================
+
+/* 1) Greatest of three numbers using functions
+      Write a JAVA code to find the greatest of three numbers using functions. Step 1: Write a function to find the greatest of two numbers Step 2: Store the result in one variable Step 3: Finally, compare the result and third number
+      Sample Input: n1 = 78
+                    n2 = 98
+                    n3 = 167
+      Sample Output:  167           */
+      
+//---------:: APPROACH 1 ::-------      
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int greater_num(int n1, int n2, int n3)
+  {
+    int max ;
+    if(n1 > n2)
+      max = n1;
+    else 
+      max = n2;
+    if(max > n3)
+      return max;
+    else
+      return n3;
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n1 = in.nextInt(), n2 = in.nextInt(), n3 = in.nextInt();
+    System.out.println( greater_num(n1,n2,n3) );
+  }
+}      */
+
+// ----------:: APPROACH 2 ::------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int greater_num(int n1, int n2)
+  {
+    int max ;
+    if(n1 > n2)
+      return n1;
+    else
+      return n2;
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n1 = in.nextInt(), n2 = in.nextInt(), n3 = in.nextInt();
+    int result = greater_num(n1,n2);
+    System.out.println( greater_num(result,n3) );
+  }
+}   */
+//---------------------------------------------------------------
+
+/* 2) GCD of three numbers using functions
+      Write a JAVA code to find the GCD of three numbers using functions. 
+      Step 1: Write a function to find the GCD of two numbers 
+      Step 2: Store the result in one variable 
+      Step 3: Find the GCD of result and third number
+      Sample Input: 8 12 28
+      Sample Output: 4              */
+
+//-------:: APPROACH 1 ::---------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int greater_num(int n1, int n2, int n3)
+  {
+    int min, MIN;
+    if(n1 > n2)
+      min = n2;
+    else
+      min = n1;
+    if(n3 > min)
+      MIN = min;
+    else
+      MIN = n3;
+      
+    for(int i = MIN; i >= 1 ; i--)
+    {
+      if( n1 % MIN == 0 && n2 % MIN == 0 && n3 % MIN == 0 )
+            return MIN;
+    }
+    return 1;
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n1 = in.nextInt(), n2 = in.nextInt(), n3 = in.nextInt();
+    System.out.println( greater_num(n1,n2,n3) );
+  }
+}           */
+
+//-------:: APPROACH 2 ::-----------
+
+/*
+import java.util.Scanner;
+public class Main{
+	public static void main (String[] args)
+	{
+	    Scanner in = new Scanner(System.in);
+	    int n1 = in.nextInt();
+	    int n2 = in.nextInt();
+	    int n3 = in.nextInt();
+	    int result = gcd_of_2_numbers(n1, n2);// Function call
+	    System.out.print(gcd_of_2_numbers(n1, n2));// Function call
+	}
+	// Function to find the gcd of 2 numbers
+	public static int gcd_of_2_numbers(int num1, int num2)
+	{
+	    int min_element;
+	    if(num1 < num2)
+	    {
+	        min_element = num1;
+	    }
+	    else{
+	        min_element = num2;
+	    }
+	    while(min_element >= 1)
+	    {
+	        if((num1 % min_element == 0) &&(num2 % min_element == 0))
+	        {
+	            return min_element;
+	        }
+	        --min_element;
+	    }
+	    return 0;
+	}
+}                 */
+//=====================================================================================================================
