@@ -1,2 +1,18 @@
 //===========================================[ 1. A Case study on Functions ]==========================================
 
+/* 1) For an input 'n', write a Java program that prints the factorials of all the numbers from 1 to "n".
+      Sample Input: 3
+      Sample Output: 1
+                     2
+                     6    */
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    
+  }
+}*/
