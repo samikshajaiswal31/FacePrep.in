@@ -1,1 +1,94 @@
+//----------------[ Linked List Traversal ]---------------
+/*
+             HEAD               1                  2
+               |                |                  |
+        +----+-------+     +----+------+    +----+------+
+        | 1  |  o-------->| 2  |  0-------->|  3 | null |
+        +----+-------+     +----+------+    +----+------+       
+         DATA  NEXT                                                */
+             
+class SinglyList
+{
+    Node head;
+    static class Node{
+        int data;
+        Node next;
+        Node(int d){         // constructor
+            data = d;
+            next = null;
+        }    
+    }
+    
+    public void print(){
+        Node n = head;
+        while(n != null){
+            System.out.print(n.data + " ");   // 1 2 3
+            n = n.next;
+        }
+    }
 
+    public static void main(String args[]){
+        SinglyList list = new SinglyList();
+         
+        list.head = new Node(1);
+        Node second = new Node(2);
+        Node third = new Node(3);
+        
+        list.head.next = second;
+        second.next = third;
+        list.print();
+    }
+}
+
+//-------------------[ Linked List Insertion ]--------------
+/*             1                2                  3
+               |                |                  |
+        +----+-------+     +----+------+    +----+------+
+        | 1  |  o--------->| 2  |  0------->|  3 | null |
+        +----+--|----+     +----+------+    +----+------+           
+         DATA   | NEXT
+                |        
+        +----+--|---+     
+HEAD----| 5  |  o   |     Add a node at the front
+        +----+------+                                       */
+*/
+class SinglyList
+{
+    Node head;
+    static class Node{
+        int data;
+        Node next;
+        Node(int d){         // constructor
+            data = d;
+            next = null;
+        }    
+    }
+    
+    public void print(){
+        Node n = head;
+        while(n != null){
+            System.out.print(n.data + " ");          // 5 1 2 3
+            n = n.next;
+        }
+    }
+    
+    public void push(int new_data){
+        Node new_node =  new Node(new_data);
+        new_node.next = head;
+        head = new_node;
+    }
+    
+    public static void main(String args[]){
+        SinglyList list = new SinglyList();
+         
+        list.head = new Node(1);
+        Node second = new Node(2);
+        Node third = new Node(3);
+        
+        list.head.next = second;
+        second.next = third;
+        list.push(5);
+        list.print();
+    }
+}
+//-----------------------------------
