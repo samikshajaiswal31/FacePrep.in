@@ -1,1 +1,64 @@
 //=======================================[ 1. What makes Arrays special? ]============================================
+
+/* 1) Which of the following cannot be given as input to the array declared below?
+      int score[] = new int[4];
+      option 1) 18, 19, 25, 52
+             2) 55, 25.2, 32, 1 => yes
+              In an array of type int, we cannot use decimal values.  */
+//-----------------------------------------------------------------------------
+
+/* 2) Which of the following will be the output for the array declared below?
+   int score[] = new int[4];
+   System.out.print(score[2]);
+   [Note: We have not initialized any value to the array variable score.]
+   option 1)  0 => yes       2)Error
+   If we haven't initialized any value to the array variable, it stores 0 by default.  */
+//-----------------------------------------------------------------------------------------
+
+/*3) What will be the output for the print statement given below?
+     int score[] = new int[4];
+     System.out.print(score[6]);
+     Option 1) 0             2) Error => yes
+     It will show the following error.                 */
+     
+//===================================[ 2. How to use Arrays in a program? ]=======================================
+
+/*1) What is the output of the code given below?
+import java.util.Scanner;
+class Main{
+  public static void main(String args[]){
+   int arr[] = new int[5];
+    arr[0] = 1;
+    arr[1] = 2;
+    arr[2] = 3;
+    arr[3] = 4;
+    arr[4] = 5;
+    for(int i =0; i < 5; i++)              // o/p: 1
+    {                                      //      2
+      System.out.println(arr[i]);          //      3      
+    }                                      //      4
+  }                                        //      5
+}     */
+//------------------------------------------------------
+
+/* 2) Amongst the following, choose the right option to find the average of marks of 120 students?
+   A) Average = (stu_1_mark + stu_2_mark + stu_3_mark ...................stu_120_mark) / 120
+   B) Average = (stu_1_mark / 120) + (stu_2_mark / 120) + (stu_3_mark / 120) ...................
+   ........(stu_120_mark) / 120
+ANS : Average is the sum of all the values in the group divided by the number of values in the group.
+      Here, the student count is 120.
+      So, the right answer is 
+      Average = (stu_1_mark + stu_2_mark + stu_3_mark ........stu_120_mark) / 120     */
+//----------------------------------------------------------------------------------
+
+/* 3) Write a Java code to find the average of marks of 120 students using the user Input values.
+   Sample Input:  arr_size = 120
+                  student_mark[] = {student_1_mark, student_2_mark ............. student_120_mark}	
+   Sample Output:	Average = 	(stu_1_mark + stu_2_mark + stu_3_mark ........stu_120_mark) / 120				
+  (Hint: Use scanner statement and for loop)      */
+  
+  
+
+
+
+
