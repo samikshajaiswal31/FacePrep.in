@@ -1,1 +1,141 @@
+//========================================[ 1. Using Functions with Arrays ]========================================
+/* 1) Predict the output for the following code:
+        func(Input: num[], n) 
+        {
+           num[0] = 2 
+           num[1] = 1
+        }
+        Input: list[], n
+        list[0] = 1
+        list[1] = 2
+        func(list, n)          // FUNCTION CALL
+        print list[0]        
+        print list[1]         
+        
+OPTION A) 	1
+            2
+       B)   2   ==> (YES)
+            1                 */
+//----------------------------------------------
+        
+/* 2) Write a Java code to print odd-positioned elements of an array followed by 
+      even-positioned elements of the same array.
+      Sample Input: n = 6
+                    list[] = {10, 33, 11, 12, 0, 2}
+      Sample Output:  10 11 0 33 12 2                 */
 
+//---------:: PSEUDOCODE ::---------------
+/*
+  START
+    INPUT: n, list[]
+    print_elem(list, n)
+      // Print odd-positioned elements
+    for index = 0 to (n-1) ; step by 2
+    {
+      PRINT list[index]
+    }
+      // Print even-positioned elements
+    for index = 1 to (n-1) ; step by 2
+    {
+      PRINT list[index]
+    }
+  STOP
+*/
+
+//-----------:: APPROACH ::--------------
+/* 
+import java.util.Scanner;
+class Main
+{
+  public static void print( int n, int num[])
+  {
+    for(int i = 0 ; i < n ; i = i+2)
+    	System.out.println(num[i]);
+    for(int i = 1 ; i < n ; i = i+2)
+    	System.out.println(num[i]);
+  }
+  public static void main(String args[])
+  {
+   	Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), list[] = new int[size];
+    for(int i = 0 ; i < size ; i++)
+    	list[i] = in.nextInt();
+    print(size, list);
+  }
+}           */
+
+//==============================================[ ASSIGNMENT ]======================================================
+
+/* Checking for Perfect Batch
+   1) Write a Java program to check if batches of size 3 are summing up to the same value.
+      Sample Input 1:   n = 6
+                        list[] = {1, 2, 3, 5, 0, 1}
+      Sample Output 1:  Perfect Batch
+
+      Sample Input 2:   n = 6
+                        list[] = {1, 1, 2, 2, 3, 3}
+      Sample Output 2:  Not a Perfect Batch             */
+      
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void perfectBatch(int n, int num[])
+  {
+    int batchSum = num[0] + num[1] + num[2];
+    boolean perfectBatch = true;
+    for(int i = 3 ; i < n ; i = i+3)
+    {
+      int currBatchSum = num[i] + num[i+1] + num[i+2];
+      if(currBatchSum != batchSum)
+        perfectBatch = false;
+    }
+    if( perfectBatch == true )
+    	System.out.println("Perfect Batch");
+    else
+      	System.out.println("Not a Perfect Batch");
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), list[] = new int[size];
+    for(int i = 0 ; i < size ; i++)
+      list[i] = in.nextInt();
+    perfectBatch(size, list);
+  }
+}               */ 
+//------------------------------------------------------------
+
+/* Finding the maximum element's index
+   2) Write a Java program to find maximum element's index in an array.
+      Sample Input: n = 5
+                    list[] = {10, 27, 23, 42, 35}
+      Sample Output:  3                                 */
+
+/*
+import java.util.Scanner;
+class Main
+{
+   public static void max(int n, int num[])
+   {
+      int largest = num[0], index = -1;
+      for(int i = 1; i < n; i++)
+      {
+        if( largest <= num[i])
+        { 
+          largest = num[i];
+          index = i;
+        }
+      }
+      System.out.println(index);
+   }
+   public static void main(String args[])
+   {
+      Scanner in = new Scanner(System.in);
+      int size = in.nextInt(), arr[] = new int[size];
+      for(int i = 0; i < size; i++)
+        arr[i] = in.nextInt();
+      max(size, arr); 
+   }
+}       */
+//==================================================================================================================
