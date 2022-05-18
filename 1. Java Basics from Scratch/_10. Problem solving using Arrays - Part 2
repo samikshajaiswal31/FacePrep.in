@@ -247,17 +247,35 @@ class Main
 {
   public static void even_left_rotate(int n, int ary[], int r)
   {
-     int last_element, first_element = 1;
+     int last_element, rotation = r;
      if( n%2 == 0)
-        last_element = (-1)
+        last_element = (n-2);
      else
-        
-     for(int i = 1; i < n ; i=i+2)
-        ary[i] = ary[i+2];
+        last_element = (n-1);
+     while(rotation > 0)
+     {
+        int temp = ary[last_element];
+        for( int i = 1; i < n ; i = (i+2) )
+            ary[i] = ary[i+2];
+        ary[last_element] = temp;
+        rotation--;
+      }
   }
   public static void odd_right_rotate(int n, int ary[], int r)
   {
-    
+    int last_element, rotation = r;
+     if( n%2 == 0)
+        last_element = (n-1);
+     else
+        last_element = (n-2);
+     while(rotation > 0)
+     {
+        int temp = ary[1];
+        for( int i = 0; i < n ; i = (i+2) )
+            ary[i+2] = ary[i];
+        ary[0] = temp;
+        rotation--;
+      }
   }
   public static void main(String args[])
   {
