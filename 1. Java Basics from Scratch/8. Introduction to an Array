@@ -57,6 +57,242 @@ ANS : Average is the sum of all the values in the group divided by the number of
    Sample Output:	Average = 	(stu_1_mark + stu_2_mark + stu_3_mark ........stu_120_mark) / 120				
   (Hint: Use scanner statement and for loop)      */
   
+/*
+  import java.util.Scanner;
+  class Main
+  {
+      public static void main(String args[])
+      {
+         Scanner in = new Scanner(System.in);
+         int count = in.nextInt(), marks[] = new int[count], sum = 0;
+         for(int i = 0; i < count; i++)
+         {   
+            marks[i] = in.nextInt();
+            sum += marks[i];
+         }
+         System.out.println(sum/count);
+      }
+  }         */
+//--------------------------------------------------------------------
+
+/* 4) Write a Java code to get and print the array elements.
+      Sample Input: arr_size = 5
+                    arr[] = { 4, 7, 34, 67, 100}
+      Sample Output:    4  
+				7  
+				34  
+				67  
+			      100         */
+                        
+//-------PSEUDOCODE----------
+/* 
+   START
+   INPUT: arr_size, arr[]
+    for index = 0 to arr_size - 1
+    {
+        print arr[index]
+    }
+   STOP     */
+
+//----------:: APPROACH 1 ::---------------
+/*
+import java.util.Scanner;
+class Main
+{
+   public static void main(String args[])
+   {
+      Scanner in = new Scanner(System.in);
+      int count = in.nextInt(), arr[] = new int[count];
+      for(int i = 0 ; i < count ; i++)
+      {
+         arr[i] = in.nextInt();
+         System.out.println(arr[i]);
+      }
+   }
+}     */
+
+//----------:: APPROACH 2 ::----------------
+/*
+import java.util.Scanner;
+class Main
+{
+   public static void main(String args[])
+   {
+      Scanner in = new Scanner(System.in);
+      int arr_size = in.nextInt(), arr[] = new int[arr_size];
+      for(int idx = 0; idx <= arr_size - 1; idx++)
+         arr[idx] = in.nextInt();
+      for(int idx = 0; idx <= arr_size - 1; idx++)
+         System.out.println(arr[idx]);
+   }
+}           */
+//----------------------------------------------------------
+
+/* 5) Write a Java code to search a given number in an array.
+      Sample Input:     arr_size = 5
+				arr[] = {23, 82, 57, 45, 38}
+				search_elem = 45
+      Sample Output:    Found                             */
+
+//------:: PSEUDOCODE ::------- 
+/*
+    START
+      INPUT: arr_size, arr[], search_elem
+      is_matched = 0
+      FOR index = 0 to arr_size-1
+      {
+            IF (search_elem == arr[index])
+            { 
+                  is_matched = 1
+                  BREAK
+            }
+      }
+      IF(is_matched == 1)
+      {
+            PRINT "Found"
+      }
+      ELSE
+      {
+            PRINT "Not Found"
+      }
+   STOP           */
+   
+//----------:: APPROACH ::---------------   
+/*
+ import java.util.Scanner;
+ class Main
+ {
+   public static void main(String args[])
+   {
+      Scanner in = new Scanner(System.in);
+      int size = in.nextInt(), arr[] = new int[size], 
+          search = in.nextInt(), match = 0;
+      for(int i = 0 ; i < size; i++)
+         arr[i] = in.nextInt();  
+      for(int i = 0 ; i < size; i++)
+      {
+         if(arr[i] == search)
+         {
+           match = 1;
+           break;
+         }
+      }
+      if(match == 1)
+            System.out.println("Found");
+      else 
+      		System.out.println("Not Found");
+   }
+}           */
+//----------------------------------------------------------
+
+/* 6) Write a Java code to find the number of occurrences of a given number in an array. 
+      Sample Input:     arr_size = 6
+                        arr[] = {32, 58, 57, 32, 38, 57}
+                        search_elem = 57
+      Sample Output:    2                 */
+ 
+//-------:: PSEUDOCODE ::-----------
+/*
+      START
+      INPUT: arr_size, arr[], search_elem
+      count = 0 
+      FOR index = 0 to arr_size-1
+      {
+            IF (search_elem == arr[index])       
+                  count++;
+      }
+      PRINT count
+      STOP              */
+
+//----------:: APPROACH ::----------------
+/*
+import java.util.Scanner;
+class Main
+{
+   public static void main(String args[])
+   {
+      Scanner in = new Scanner(System.in);
+      int size = in.nextInt(), arr[] = new int[size], 
+          search = in.nextInt(), count = 0;
+      for(int i = 0 ; i < size; i++)
+         arr[i] = in.nextInt();  
+      for(int i = 0 ; i < size; i++)
+      {
+         if(arr[i] == search)
+           count++;
+      } 
+      System.out.println(count);
+   }
+}                 */
+
+//=============================================[ ASSIGNMENT ]==============================================
+/* Searching for two elements
+   1) Get two elements from the user, write a Java code to find the index of two elements in an array. 
+      If element 1 and element 2 are found, then print their index. Otherwise print -1.
+      Sample Input:     arr_size = 5
+                        arr[] = {23, 34, 45, 53, 27}
+                        search_elem_1 = 34
+                        search_elem_2 = 53
+      Sample Output:    element_1_index = 1
+                        element_2_index = 3
+                        
+      Sample Input:     arr_size = 5
+                        arr[] = {23, 34, 45, 53, 27}
+                        search_elem_1 = 34
+                        search_elem_2 = 1000
+      Sample Output:    element_1_index = 1
+                        element_2_index = -1                */
+                        
+/*
+import java.util.Scanner;
+class Main
+{
+    public static void main(String args[])
+    {
+        Scanner in = new Scanner(System.in);
+        int size = in.nextInt(), arr[] = new int[size], index1 = -1, index2 = -1;
+        for(int i = 0 ; i < size ; i++)
+        	arr[i] = in.nextInt();
+        int search1 = in.nextInt(), search2 = in.nextInt();
+      	for(int i = 0 ; i < size ; i++)
+        {
+          if( search1 == arr[i] )
+            index1 = i;
+          if( search2 == arr[i] )
+            index2 = i;
+        }
+        System.out.println( index1 + "\n" + index2 );
+    }
+}                 */
+//-----------------------------------------------------------------------
+
+/* Largest number in an array
+   2) Write a Java code to find the largest number in an array.
+      Sample Input:     arr_size = 5
+                        arr[] = {1, 7, 3, 4, 5}
+      Sample Output:    7                             */
+      
+/*
+import java.util.Scanner;
+class Main
+{
+    public static void main(String args[])
+    {
+        Scanner in = new Scanner(System.in);
+        int size = in.nextInt(), arr[] = new int[size];
+        for(int i = 0 ; i < size ; i++)
+        	arr[i] = in.nextInt();
+      	int largest = arr[0];
+      	for(int i = 1 ; i < size ; i++)
+        {
+          if( largest <= arr[i] )
+            largest = arr[i];
+        }
+        System.out.println( largest );
+    }
+}                 */
+//=========================================================================================================
+  
   
 
 
