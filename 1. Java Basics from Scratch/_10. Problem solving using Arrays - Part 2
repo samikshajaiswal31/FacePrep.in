@@ -1,1 +1,294 @@
+//======================================[ 1. Rearranging problems using Arrays ]=====================================
+
+/* 1) What is the output of the below code?
+import java.util.Scanner;
+class Main 
+{
+  public static void main (String[] args) 
+  {
+    int arr[] = {10, 20, 30, 40};
+    int a = 50;
+    call(a,arr);                    // int ans = call(a,arr);   System.out.println(ans); then will be 52
+    System.out.println(a);                // 50
+    System.out.println(arr[0]);           // 100
+    System.out.println(arr[1]);           // 200
+  }
+  public static void call(int a, int arr[])
+  {
+    a = a + 2;
+    arr[0] = 100;
+    arr[1] = 200;
+  }
+}                   */
+/*
+We have passed the variable 'a' and array values to the function. 
+Inside the function, value 2 is added with the variable 'a' and 
+array values in the index 0 and 1 are changed with different values. 
+The added value is not printed inside the main function. This is because 'a' is a single variable. 
+But for an array, when we try to print inside the main function the values get changed. 
+This is because while passing an array it's reference will be passed.
+*/
+//----------------------------------------------------------------------
+
+/* 2) Write a Java code to rotate an array.
+      Sample Input: arr_size = 5
+                    arr[] = {1, 2, 3, 4, 5}
+                    no_of_rotations = 2
+      Sample Output: 3 4 5 1 2
+      (HINT: You have to circularly left shift array by 2 positions)      */
+      
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void rotate(int n, int ary[], int r)
+  {
+    while(r > 0)
+    {
+      int temp = ary[0];
+      for(int i = 0 ; i < (n-1) ; i++)
+        ary[i] = ary[i+1];
+      ary[n-1] = temp;
+      r--;
+    }
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0; i < size ; i++)
+      arr[i] = in.nextInt();
+    int rotation = in.nextInt();
+    rotate(size, arr, rotation);
+    for(int i = 0; i < size ; i++)
+      System.out.println(arr[i]);
+  }
+}       */
+//-------------------------------------------------------------------
+
+/* 3) Write a Java code to segregate 0's and 1's in the given array.
+      Sample Input: arr_size = 8
+                    arr[] = {0, 1, 0, 0, 0, 1, 0, 1}
+      Sample Output:  0 0 0 0 0 1 1 1
+      (Hint: First print all 0's and then all 1's)          */
+
+//---------------:: APPROACH 1 ::-------------------
+/* 
+import java.util.Scanner;
+class Main
+{
+  public static void segregate(int n, int ary[])
+  {
+      int count0 = 0, count1 = 0;
+      for(int i = 0 ; i < n ; i++)
+      {
+        if( ary[i] == 0 )
+          count0++;
+        if( ary[i] == 1 )
+          count1++;
+      }
+      for(int i = 0 ; i < count0 ; i++)
+        ary[i] = 0;
+      for(int i = count0 ; i < (count0+count1) ; i++)
+        ary[i] = 1;
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0; i < size ; i++)
+      arr[i] = in.nextInt();
+    segregate(size, arr);
+    for(int i = 0; i < size ; i++)
+      System.out.println(arr[i]);
+  }
+}            */
+
+//---------------------:: APPROACH 2 ::-----------------------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void segregate(int n, int ary[])
+  {
+      int zero_count = 0;
+      for(int i = 0 ; i < n ; i++)
+      {
+        if( ary[i] == 0 )
+          zero_count++;
+      }
+      for(int i = 0 ; i < n ; i++)
+      {
+        if( i < zero_count )
+          ary[i] = 0;
+        else 
+          ary[i] = 1;
+      }
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0; i < size ; i++)
+      arr[i] = in.nextInt();
+    segregate(size, arr);
+    for(int i = 0; i < size ; i++)
+      System.out.println(arr[i]);
+  }
+}             */
+//-----------------------------------------------------------------------
+
+/* 3) Write a Java code to group numbers in an array. 
+      ( Negative numbers on the left and positive numbers on the right.)
+   Sample Input:  arr_size = 6
+                  arr[] = {-8, 9, 7, -2, -1, -3}
+   Sample Output:	-8 -2 -1 -3 9 7                                   */
+
+//---------------:: APPROACH 1 ::---------------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void grouping(int n, int ary[])
+  {
+      int pos[] = new int[n], neg[] = new int[n];
+      int count = 0, posCount = 0, negCount = 0;
+      for(int i = 0 ; i < n ; i++)
+      {
+        if( ary[i] < 0 )
+        {  
+          neg[negCount] = ary[i];
+          negCount++;
+        }
+        else
+        {
+           pos[posCount] = ary[i];
+           posCount++;
+         // System.out.println("pos "+pos[1]);
+        }
+      }
+      for(int j = 0 ; j < negCount ; j++)
+        ary[j] = neg[j];
+      for(int j = negCount ; j < n ; j++)
+      {
+        ary[j] = pos[count];
+    	count++;
+      }
+    }
+   public static void main(String args[])
+   {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0; i < size ; i++)
+      arr[i] = in.nextInt();
+    grouping(size, arr);
+    for(int i = 0; i < size ; i++)
+      System.out.println(arr[i]);
+   }
+}       */
+
+//-------------:: APPROACH 2 ::---------------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void grouping(int n, int ary[])
+  {
+      int pos[] = new int[n], neg[] = new int[n];
+      int count = 0, posCount = 0, negCount = 0;
+      for(int i = 0 ; i < n ; i++)
+      {
+        if( ary[i] < 0 )
+        {  
+          neg[negCount] = ary[i];
+          negCount++;
+        }
+        else
+        {
+           pos[posCount] = ary[i];
+           posCount++;
+         // System.out.println("pos "+pos[1]);
+        }
+      }
+      for(int j = 0 ; j < negCount ; j++)
+        ary[j] = neg[j];
+      for(int j = negCount ; j < n ; j++)
+      {
+        ary[j] = pos[count];
+    	count++;
+      }
+    }
+   public static void main(String args[])
+   {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0; i < size ; i++)
+      arr[i] = in.nextInt();
+    grouping(size, arr);
+    for(int i = 0; i < size ; i++)
+      System.out.println(arr[i]);
+   }
+}           */
+
+//============================================[ 1. ASSIGNMENT ]===================================================
+
+/* 1) Left and Right Rotate
+      Write a Java code to circularly right rotate odd position elements and circularly left rotate even position elements.
+      Sample Input: arr_size = 10
+                    arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+                    no_of_rotation = 2
+   Consider 1, 3, 5, 7, 9 as odd position elements and 2, 4, 6, 8, 10 as even position elements.
+   Assume array index starts from one.
+      Sample Output:   7 6 9 8 1 10 3 2 5 4       */
+      
+/* 
+import java.util.Scanner;
+class Main
+{
+  public static void even_left_rotate(int n, int ary[], int r)
+  {
+     int last_element, first_element = 1;
+     if( n%2 == 0)
+        last_element = (-1)
+     else
+        
+     for(int i = 1; i < n ; i=i+2)
+        ary[i] = ary[i+2];
+  }
+  public static void odd_right_rotate(int n, int ary[], int r)
+  {
+    
+  }
+  public static void main(String args[])
+  {
+      Scanner in = new Scanner(System.in);
+      int size = in.nextInt(), arr[] = new int[size];
+      for(int i = 0; i < size ; i++)
+        arr[i] = in.nextInt();
+      int rotation = in.nextInt();
+      odd_right_rotate(size, arr, rotation);
+      even_left_rotate(size, arr, rotation);
+      for(int i = 0; i < size ; i++)
+        System.out.println(arr[i]);
+   }
+}          */
+//------------------------------------------------------------------------
+
+/* 2) Moving all the zeroes to the end of an array
+      Write a Java code to move all the zeroes of a given array to the end of the array.
+      Sample Input: arr_size = 6
+                    arr[] = {6, 7, 0, 4, 0, 2}
+      Sample Output:  arr[] = {6, 7, 4, 2, 0, 0}    */
+      
+/*
+*/
+//================================================================================================================
+
+
+
+
+
+
+
+
 
