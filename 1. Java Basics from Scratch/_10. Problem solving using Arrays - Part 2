@@ -297,12 +297,379 @@ class Main
       Sample Input: arr_size = 6
                     arr[] = {6, 7, 0, 4, 0, 2}
       Sample Output:  arr[] = {6, 7, 4, 2, 0, 0}    */
-      
+
+//-------------:: APPROACH 1 ::---------------------
 /*
-*/
-//================================================================================================================
+import java.util.Scanner;
+class Main
+{
+  public static void zeroes(int n, int ary[])
+  {
+    int count = 0, arr[] = new int[n], index = 0;
+    for(int i = 0 ; i < n ; i++)
+    {
+      if( ary[i] == 0 )
+        count++;
+      if( ary[i] > 0 )
+        arr[index++] = ary[i];
+    }
+    for(int i = 0 ; i < count ; i++)
+      arr[index++] = 0;
+    for(int i = 0 ; i < n ; i++)
+      System.out.print( arr[i] + " " );
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0 ; i < size ; i++)
+      arr[i] = in.nextInt();
+    zeroes(size, arr);
+  }
+}           */
 
+//-------------:: APPROACH 2 ::-----------------
+/*
+import java.util.Scanner;
+class Main
+{
+    public static void zeroes(int n, int ary[])
+    {
+        int count = 0;
+        for(int i = 0 ; i < n ; i++)
+        {
+            if(ary[i] != 0)
+            {
+                int temp = ary[i];      // temp = 6 7 4
+                ary[i] = ary[count];    // 6 7 4
+                ary[count] = temp;      // 6 7 4 
+                count++;
+            }
+        }
+    }
+    public static void main(String args[]) 
+    {
+       Scanner in = new Scanner(System.in);
+       int size = in.nextInt();
+       int arr[] = new int[size];
+       for(int i = 0 ; i < size ; i++)
+           arr[i] = in.nextInt();
+       zeroes(size, arr);
+       for(int i = 0; i < size ; i++)
+           System.out.print(arr[i] + " ");
+     }
+}         */
+//====================================[ 2. Statistical problems using Arrays ]===================================
 
+/* 1) What is the output of the following code?
+import java.util.Scanner;
+class Main
+{
+   public static void main (String[] args)
+   {
+      int arr[] = {1, 5, 5, 1};
+      int max = arr[0];
+      int index_of_max = 0;
+      for(int index = 1; index < arr.length; index++)
+      {
+          if(arr[index] > max)
+          {
+              max = arr[index];
+              index_of_max = index;
+          }
+      }
+      System.out.println(index_of_max);               // o/p : 1
+   }
+}           */
+//---------------------------------------------------------------------------------------
+
+/* 2) Write a Java code to print the index of the second last occurrence of a given number.
+      Sample Input: arr_size = 6
+                    arr[] = {3, 5, 2, 5, 4, 5}
+                    search_val = 5
+      Sample Output:  3                       */
+
+//------------------:: APPROACH 1 ::---------------------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int occurrence(int n, int ary[], int val)
+  {
+    int count = 0, index = -1;
+    for(int i = 0; i < n ; i++)
+    {
+      if( val == ary[i] )
+        count++;
+    }
+    count = --count;
+    for(int i = 0; i < n ; i++)
+    {
+      if( val == ary[i] )
+      {  
+        count--;
+        if(count == 0)
+          index = i;
+      }
+    }
+    return index;
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0 ; i < size ; i++)
+      arr[i] = in.nextInt();
+    int search = in.nextInt();
+    System.out.println(occurrence(size, arr, search));
+  }
+}             */
+
+//----------------------:: APPROACH 2 ::---------------------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int occurrence(int n, int ary[], int val)
+  {
+    int count = 0;
+    for(int i = (n-1) ; i > 0 ; i--)
+    {
+      if( val == ary[i] )
+        count++;
+      if( count == 2 )
+     	return i;
+    }
+    return -1;
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0 ; i < size ; i++)
+      arr[i] = in.nextInt();
+    int search = in.nextInt();
+    System.out.println(occurrence(size, arr, search));
+  }
+}         */
+
+//-----------------------------------------------------------------
+
+/* 3) Write a Java code to print all the subsets of size 2.
+      Sample Input:   arr_size = 5
+                      arr[] = {50, 10, 30, 20, 0}
+      Sample Output:	(50, 10) (50, 30) (50, 20) (50, 0)
+			                (10, 30) (10, 20) (10, 0)
+			                (30, 20) (30, 0)
+			                (20, 0)                                   */
+                      
+ /*
+import java.util.Scanner;
+class Main
+{
+  public static void subset( int n, int ary[] )
+  {
+    for(int i = 0 ; i < n ; i++)
+    {
+       for(int j = (i+1) ; j < n ; j++)
+          System.out.print( "("+ ary[i] + ", " + ary[j] + ") " );
+       System.out.println();
+    }
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0 ; i < size ; i++)
+      arr[i] = in.nextInt();
+    subset(size, arr);
+  }
+}        */
+//-------------------------------------------------------------------
+
+/* 4) Find the intention of the following code.
+import java.util.Scanner;
+class Main
+{
+    public static void main(String[] args) 
+    {
+        int arr_size, min;
+        Scanner Sc = new Scanner(System.in);
+        arr_size = Sc.nextInt();
+        int arr[] = new int[arr_size];
+        for (int index = 0; index < arr_size; index++) 
+        {
+            arr[index] = Sc.nextInt();
+        }
+        for (int index_1 = 0; index_1 < arr_size; index_1++) 
+        {
+            for (int index_2 = index_1 + 1; index_2 < arr_size; index_2++) 
+            {
+                if (arr[index_1] > arr[index_2]) 
+                {
+                    min = arr[index_1];
+                    arr[index_1] = arr[index_2];
+                    arr[index_2] = min;
+                }
+            }
+        }
+        System.out.println(arr[1]);        // 10 :Output is the second smallest element 
+    }
+}           */
+//--------------------------------------------------------------------------
+
+/* 5) Write a Java code to find the equilibrium element in the given array.
+      (Hint: An equilibrium element in an array is the one which is having 
+       equal sum of the elements in the right side and the left side)
+      Sample Input:   arr_size = 6
+                      arr[] = {1, 2, 3, 4, 3, 3}
+      Sample Output:  4                                         */
+
+//--------------:: APPROACH 1 ::-------------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int equilibrium( int n, int ary[] )
+  {
+     int rightSum = 0, leftSum = 0;
+     for(int j = (n-1) ; j >= 0 ; j--)
+          rightSum += ary[j];
+     for(int i = 0 ; i < ary.length ; i++)
+     {
+       rightSum -= ary[i];
+       if( rightSum == leftSum )
+         return ary[i];	
+       leftSum += ary[i];
+     }
+    return -1;
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0 ; i < size ; i++)
+      arr[i] = in.nextInt();
+    System.out.println(equilibrium(size, arr));
+  }
+}                           */
+
+//-----------------:: APPROACH 2 ::-----------------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static int equilibrium( int n, int ary[] )
+  {
+     for(int i = 0 ; i < n ; i++)
+     {    
+        int leftSum = 0;
+     	for(int l = 0 ; l < i ; l++)
+       		leftSum += ary[l];
+        int rightSum = 0;
+        for(int r = (i+1) ; r < n ; r++)
+       		rightSum += ary[r];
+      	if( rightSum == leftSum )
+        	return ary[i];
+      }
+    return -1;
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0 ; i < size ; i++)
+      arr[i] = in.nextInt();
+    System.out.println(equilibrium(size, arr));
+  }
+}                 */
+//------------------------------------------------------------------------
+
+/* 6) What will be the output of the following code?
+class Main
+{
+  public static void main(String args[])
+  {
+    int arr[] = new int[4];
+    arr[1] = 1;
+    arr = new int[2];
+    System.out.println("arr[1] is " + arr[1]);      // arr[1] is 0
+  }
+}                                                 */
+
+//==============================================[ 2. ASSIGNMENT ]=================================================
+/* 1) Perfect Couple
+      Write a Java code to find all pairs of elements whose sum is equal to the given value.
+      Sample Input: arr_size = 5
+                    arr[] = {50, 10, 30, 20, 0}
+                    value = 30
+      Sample Output:  10, 20
+                      30, 0                     */
+                      
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void subset( int n, int ary[], int val )
+  {
+    for(int i = 0 ; i < n ; i++)
+    {
+       if(ary[i] <= val)
+       {
+          for(int j = (i+1) ; j < n ; j++)
+          {
+            if( (ary[i] + ary[j]) == val )
+              System.out.println( ary[i] + ", " + ary[j] );
+          } 
+       }  
+    }
+  }
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0 ; i < size ; i++)
+      arr[i] = in.nextInt();
+    int val = in.nextInt();
+    subset(size, arr, val);
+  }
+}                     */
+//------------------------------------------------------------------
+
+/* 2) Printing subsets of size 3
+      Write a Java code to print all subsets of size 3.
+      Sample Input:   arr_size = 5
+                      arr[] = {1, 7, 3, 4, 9}
+      Sample Output:  (1, 7, 3) (1, 7, 4) (1, 7, 9) (1, 3, 4) (1, 3, 9) (1, 4, 9)
+                      (7, 3, 4) (7, 3, 9) (7, 4, 9)
+                      (3, 4, 9)                                             */
+                      
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void subset( int n, int ary[] )
+  {
+    for(int i = 0 ; i < (n-1) ; i++) 
+    {
+      for(int j = (i+1) ; j < n ; j++)
+      {
+        for(int k = (j+1) ; k < n ; k++)
+        	System.out.print( "(" + ary[i] + ", " + ary[j] + ", " + ary[k] + ") " );
+      }
+      System.out.println(); 
+    }
+  }  
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int size = in.nextInt(), arr[] = new int[size];
+    for(int i = 0 ; i < size ; i++)
+      arr[i] = in.nextInt();
+    subset(size, arr);
+  }
+}         */
+//===============================================================================================================
 
 
 
