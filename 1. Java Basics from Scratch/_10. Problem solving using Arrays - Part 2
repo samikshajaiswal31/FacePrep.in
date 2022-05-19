@@ -243,53 +243,71 @@ class Main
       
 /* 
 import java.util.Scanner;
-class Main
+class Main 
 {
-  public static void even_left_rotate(int n, int ary[], int r)
-  {
-     int last_element, rotation = r;
-     if( n%2 == 0)
-        last_element = (n-2);
-     else
-        last_element = (n-1);
-     while(rotation > 0)
-     {
-        int temp = ary[last_element];
-        for( int i = 1; i < n ; i = (i+2) )
-            ary[i] = ary[i+2];
-        ary[last_element] = temp;
-        rotation--;
-      }
-  }
-  public static void odd_right_rotate(int n, int ary[], int r)
-  {
-    int last_element, rotation = r;
-     if( n%2 == 0)
-        last_element = (n-1);
-     else
-        last_element = (n-2);
-     while(rotation > 0)
-     {
-        int temp = ary[1];
-        for( int i = 0; i < n ; i = (i+2) )
-            ary[i+2] = ary[i];
-        ary[0] = temp;
-        rotation--;
-      }
-  }
-  public static void main(String args[])
-  {
-      Scanner in = new Scanner(System.in);
-      int size = in.nextInt(), arr[] = new int[size];
-      for(int i = 0; i < size ; i++)
-        arr[i] = in.nextInt();
-      int rotation = in.nextInt();
-      odd_right_rotate(size, arr, rotation);
-      even_left_rotate(size, arr, rotation);
-      for(int i = 0; i < size ; i++)
-        System.out.println(arr[i]);
-   }
-}          */
+    public static void left_rotate_even_elem(int arr_size, int arr[], int no_of_rotation)
+    {
+       int first_even_elem_index = 1;
+       int last_even_elem_index;
+       if(arr_size % 2 == 0)
+       {
+           last_even_elem_index = arr_size - 1;
+       }
+       else
+       {
+           last_even_elem_index = arr_size - 2;
+       }
+       for(int rotation = 1; rotation <= no_of_rotation; rotation++)
+       {
+           int temp = arr[first_even_elem_index];
+           for(int index = 3; index < arr_size; index = index + 2)
+           {
+               arr[index - 2] = arr[index];
+           }
+           arr[last_even_elem_index] = temp;
+       }
+    }
+    public static void right_rotate_odd_elem(int arr_size, int arr[], int no_of_rotation)
+    {
+       int first_odd_elem_index = 0;
+       int last_odd_elem_index;
+       if(arr_size % 2 == 1)
+       {
+          last_odd_elem_index = arr_size - 1;
+       }
+       else
+       {
+          last_odd_elem_index = arr_size - 2;
+       }
+       for(int rotation = 1; rotation <= no_of_rotation; rotation++)
+       {
+           int temp = arr[last_odd_elem_index];
+           for(int index = (last_odd_elem_index - 2); index >= 0; index = index - 2)
+            {
+               arr[index + 2] = arr[index];
+           }
+           arr[first_odd_elem_index] = temp;
+       }
+    }
+    public static void main(String args[])
+    {
+        Scanner in = new Scanner(System.in);
+        int arr_size = in.nextInt();
+        int arr[] = new int[arr_size];
+        for(int index = 0; index <= (arr_size - 1); index++)
+        {
+            arr[index] = in.nextInt();
+        }
+        int no_of_rotation = in.nextInt();
+        left_rotate_even_elem(arr_size, arr, no_of_rotation);
+        right_rotate_odd_elem(arr_size, arr, no_of_rotation);
+    
+    for(int index = 0; index <= (arr_size - 1); index++)
+        {
+            System.out.print(arr[index]+" ");
+        }
+    }
+}  		*/
 //------------------------------------------------------------------------
 
 /* 2) Moving all the zeroes to the end of an array
@@ -331,34 +349,33 @@ class Main
 //-------------:: APPROACH 2 ::-----------------
 /*
 import java.util.Scanner;
-class Main
+class Main 
 {
-    public static void zeroes(int n, int ary[])
-    {
-        int count = 0;
-        for(int i = 0 ; i < n ; i++)
+  public static void zeroes(int n , int ary[])
+  {
+    int count = 0;
+      for(int i = 0; i < n ; i++)
+      {
+        if(ary[i] != 0)
         {
-            if(ary[i] != 0)
-            {
-                int temp = ary[i];      // temp = 6 7 4
-                ary[i] = ary[count];    // 6 7 4
-                ary[count] = temp;      // 6 7 4 
-                count++;
-            }
+          	int temp = ary[i];     // temp = 6 7 4 2
+        	ary[i] = ary[count];   // ary[i] = 0 6 7 4
+        	ary[count] = temp;     // ary[count] = 6 7 4 2
+        	count++;               //  count = 1 2 3 4
         }
-    }
-    public static void main(String args[]) 
+      }
+  }
+  public static void main(String args[])
     {
-       Scanner in = new Scanner(System.in);
-       int size = in.nextInt();
-       int arr[] = new int[size];
-       for(int i = 0 ; i < size ; i++)
-           arr[i] = in.nextInt();
-       zeroes(size, arr);
-       for(int i = 0; i < size ; i++)
-           System.out.print(arr[i] + " ");
-     }
-}         */
+    	Scanner in = new Scanner(System.in);
+    	int size = in.nextInt(), arr[] = new int[size];
+    	for(int i = 0; i < size ; i++)
+        	arr[i] = in.nextInt();
+    	zeroes(size, arr);
+    	for(int i = 0; i < size ; i++)
+        	System.out.print(arr[i]+" ");
+  	}
+}  */
 //====================================[ 2. Statistical problems using Arrays ]===================================
 
 /* 1) What is the output of the following code?
