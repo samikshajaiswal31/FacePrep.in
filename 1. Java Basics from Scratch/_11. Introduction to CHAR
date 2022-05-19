@@ -1,1 +1,226 @@
+//========================================[ How to use CHAR in a program? ]=======================================
+
+/* 1) What is the output of the code given below?
+import java.util.Scanner;
+class Main{
+	public static void main(String args[]) 
+  {
+		char ch = 'z';                                          // storing 'z' in the variable 'ch' 
+    	System.out.println(ch);         // z                  // printing the variable 'ch' 
+                                                 // Storing the value of the variable 'ch' in the variable 'num'
+        int num = ch;                                       // Unicode value of 'z' is stored in 'num'
+		System.out.println(num);          // 122                // printing the variable 'num'
+	}
+}            */
+//--------------------------------------------------------------
+
+/* 2) Predict the output of the following code:
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[]) 
+  {
+      char ch = 'a';
+      ch = ch + 1;                    // Error type conversion (int to char)
+      System.out.println(ch);         
+      ch = ch + 3;                    // Error type conversion (int to char) 
+      System.out.println(ch);         
+      ch = ch - 2;                    // Error type conversion (int to char)
+      System.out.println(ch);         
+  }
+}             */
+
+//-----------:: TYPE-CASTING ::----------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[]) 
+  {
+      char ch = 'a';
+      ch = (char)(ch + 1);              // '1' is added with the unicode value of 'a'
+      System.out.println(ch);   // b  
+      ch = (char)(ch + 3);              // This is called Narrowing Conversion
+      System.out.println(ch);   // e      
+      ch = (char)(ch - 2);              // explicitly converting an integer value to char
+      System.out.println(ch);   // c        
+  }
+}      */
+//--------------------------------------------------------------------------------------
+
+/* 3) The following code will convert the given lowercase character into uppercase character
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[]) 
+  {
+      char ch = 'a';
+      if(ch >= 'a' && ch <= 'z')
+          ch = (char)(ch - 32);     // Unicode value of 'a' - Unicode value of 'A' = 97 - 65 = 32
+      System.out.print(ch);
+  }
+}               */
+//-----------------------------------------------------------------------------
+
+/* 4) Write a Java code to toggle the case the given character.
+      Sample Input: ch = 'a'
+      Sample Output:  ch = 'A'      */
+      
+//--------:: PSEUDOCODE ::---------
+/*
+  START
+  INPUT: ch 
+  IF(ch >= 'a' and ch <= 'z')
+  {
+	  offset = ch - 'a'
+   	ch = 'A' + offset
+  }
+  ELSE IF(ch >= 'A' and ch <= 'Z')
+  {
+     offset = ch - 'A'
+     ch = 'a' + offset
+  }
+  PRINT ch
+  STOP
+*/
+
+//------------:: APPROACH ::---------------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[]) 
+  {
+    Scanner in = new Scanner(System.in);
+    char ch = in.next().charAt(0);
+    if(ch >= 'a' && ch <= 'z')
+    {
+      int offset = ch - 'a';
+      ch = (char)('A' + offset);
+    }
+    else if(ch >= 'A' && ch <= 'Z')
+    {
+        int offset = ch - 'A';
+        ch = (char)('a' + offset);
+    }
+    System.out.print(ch);
+  }
+}                                    */
+//---------------------------------------------------------------------------
+
+/* 5) Predict the output of the code given below.
+import java.util.Scanner;
+class Main{
+  public static void main(String args[]) {
+    Scanner in = new Scanner(System.in);
+    char ch = '5';
+    if(ch >= 48 && ch <= 57){
+      System.out.print("It's a digit");        // It's a digit
+    }
+    else{
+      System.out.print("Not a digit");  
+    }
+  }
+}                                 */
+//-----------------------------------------------------------------------------
+
+/* 6) Write a Java code to encrypt the given character with a key.
+      Sample Input: ch = 'a'
+                    key = 2
+      Sample Output:  ch = 'c'
+(Hint: Encryption means converting a data from one form to another by using a key value) */
+
+//---------:: PSEUDOCODE 2 ::----------
+/*
+  START
+    INPUT: ch
+    ch = ch + key
+    PRINT ch
+  STOP
+*/
+
+//-----------:: APPROACH 1 ::-----------
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[]) 
+  {
+    Scanner in = new Scanner(System.in);
+    char ch = in.next().charAt(0);
+    int key = in.nextInt();
+    System.out.println((char)(ch+key));
+  }
+}                                         */
+
+//-----------:: PSEUDOCODE 2 ::------------
+/*
+  START
+    INPUT: ch
+    IF(ch >= 'a' && ch <= 'z')
+    {
+	    offset = ch - 'a'
+	    offset = (offset + key) % 26
+      ch = 'a' + offset
+    }
+    ELSE IF(ch >= 'A' && ch <= 'Z')
+    {
+	    offset = ch - 'A'
+	    offset = (offset + key) % 26
+      ch = 'A' + offset
+    }
+    PRINT ch
+  STOP       
+*/
+
+//------------:: APPROACH 2 ::-----------
+/*
+import java.util.Scanner;
+class Main{
+  public static void main(String args[]) {
+    Scanner in = new Scanner(System.in);
+    char ch = in . next().charAt(0);
+    int key = in.nextInt();
+    if(ch >= 'a' && ch <= 'z'){
+      int offset = ch - 'a';
+      offset = (offset + key) % 26;
+      ch = (char)(offset + 'a');
+    }
+    else if(ch >= 'A' && ch <= 'Z'){
+      int offset = ch - 'A';
+      offset = (offset + key) % 26;
+      ch = (char)(offset + 'A');
+    }
+    System.out.print(ch);
+  }
+}                           */
+
+//=================================================[ ASSIGNMENT ]=================================================
+
+/* Decrypting a character
+   Q) Write a Java code to decrypt the given character.
+   (Hint: Decryption is the exact opposite of encryption. i.e. bringing back a code to its original form)
+    Sample Input: ch = 'a'
+                  key = 2
+    Sample Output:  ch = 'y'        */
+
+/*
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[]) 
+  {
+    Scanner in = new Scanner(System.in);
+    char ch = in.next().charAt(0);
+    int key = in.nextInt();
+    if(ch >= 'a' && ch <= 'z')
+      System.out.println((char)(ch+key));
+    else
+      (ch >= 'a' && ch <= 'z')
+  }
+}               */
+//================================================================================================================
+
+    
+
 
